@@ -117,62 +117,47 @@ function shift(){
 }
 
 //Gets direction and then calls shift() to move tile
-function moveTile(){
+var moveTile = function(){
 	if(!inProgress){
-		switch(move){
-		case "right":
-		counter=1;
-		space-=1;
-		str=this.textContent;
-		shift();
-		break;
-		case "left":
-		counter=-1;
-		space+=1;
-		str=this.textContent;
-		shift();
-		break;
-		case "down":
-		counter=1;
-		space-=4;
-		str=this.textContent;
-		shift();
-		break;
-		case "up":
-		counter=-1;
-		space+=4;
-		str=this.textContent;
-		shift();
-		break;
-
-	}
+		if(move == "right"){
+			counter=1;
+			space-=1;
+			str=this.textContent;
+			shift();
+		}else if(move == "left"){
+			counter=-1;
+			space+=1;
+			str=this.textContent;
+			shift();
+		}else if(move == "down"){
+			counter=1;
+			space-=4;
+			str=this.textContent;
+			shift();
+		}else if(move == "up"){
+			counter=-1;
+			space+=4;
+			str=this.textContent;
+			shift();
+		}
 	}
 }
 
 //Move method for shuffle
-function moveTile1(elmt){
-	
-	switch(move){
-		case "right":
+var moveTile1 = function(){
+
+	if(move == "right"){
 		elmt.style.left=parseInt(elmt.style.left)+100+'px';
 		space-=1;
-		break;
-		case "left":
+	}else if(move == "left"){
 		elmt.style.left=parseInt(elmt.style.left)-100+'px';
 		space+=1;
-		break;
-		case "down":
+	}else if (move == 'down'){
 		elmt.style.top=parseInt(elmt.style.top)+100+'px';
 		space-=4;
-		break;
-		case "up":
+	}else if(move == 'up'){
 		elmt.style.top=parseInt(elmt.style.top)-100+'px';
 		space+=4;
-		break;
-
-		default:
-
-
 	}
 }
 
@@ -252,6 +237,12 @@ $(document).ready(function (e) {
 	});
 }));
 
+
+// // $document.ready(function(){
+// // 	$('body').html(<"input type='file' onchange='previewFile()'><br>
+// // 		<img src='' height='200' alt='Image preview...'>");
+// });
+
 // Function to preview image after validation
 $(function() {
 	$("#file").change(function() {
@@ -262,6 +253,7 @@ $(function() {
 	if(!((imagefile==match[0]) || (imagefile==match[1]) || (imagefile==match[2])))
 		{
 			$('#previewing').attr('src','noimage.png');
+
 			$("#message").html("<p id='error'>Please Select A valid Image File</p>"+"<h4>Note</h4>"+"<span id='error_message'>Only jpeg, jpg and png Images type allowed</span>");
 			return false;
 		}
