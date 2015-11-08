@@ -117,7 +117,7 @@ function shift(){
 }
 
 //Gets direction and then calls shift() to move tile
-var moveTile = function(){
+function moveTile(){
 	if(!inProgress){
 		if(move == "right"){
 			counter=1;
@@ -141,10 +141,11 @@ var moveTile = function(){
 			shift();
 		}
 	}
+
 }
 
 //Move method for shuffle
-var moveTile1 = function(){
+var moveTile1 = function(elmt){
 
 	if(move == "right"){
 		elmt.style.left=parseInt(elmt.style.left)+100+'px';
