@@ -1,4 +1,5 @@
-//The animation and transition of tiles additional feature was implemented
+//The animation and transition of tiles additional feature was implemented.
+// The image change was also implemented
 //id: 620024494
 var space=15; //Empty tile
 var move="none";// direction
@@ -90,20 +91,20 @@ function canMove1(elmt){
 
 }
 
-//Animates tile movement
+//Animates movement of the title
 function shift(){
-	var indx = 0;
+	var x = 0;
 	for(var i=0; i<boxes1.length;i++){
 		if(boxes1[i].textContent===str){
-			indx=i;	
+			x=i;	
 		}
 	}
 	
 	if(adder!=100){
 		if(move==="left" || move==="right"){
-			boxes1[indx].style.left=parseInt(boxes1[indx].style.left)+counter+'px';
+			boxes1[x].style.left=parseInt(boxes1[x].style.left)+counter+'px';
 		}else{
-			boxes1[indx].style.top=parseInt(boxes1[indx].style.top)+counter+'px';
+			boxes1[x].style.top=parseInt(boxes1[x].style.top)+counter+'px';
 		}
 		adder+=1;
 		inProgress=true;
@@ -119,22 +120,22 @@ function shift(){
 //Gets direction and then calls shift() to move tile
 function moveTile(){
 	if(!inProgress){
-		if(move == "right"){
+		if(move === "right"){
 			counter=1;
 			space-=1;
 			str=this.textContent;
 			shift();
-		}else if(move == "left"){
+		}else if(move === "left"){
 			counter=-1;
 			space+=1;
 			str=this.textContent;
 			shift();
-		}else if(move == "down"){
+		}else if(move === "down"){
 			counter=1;
 			space-=4;
 			str=this.textContent;
 			shift();
-		}else if(move == "up"){
+		}else if(move === "up"){
 			counter=-1;
 			space+=4;
 			str=this.textContent;
@@ -147,16 +148,16 @@ function moveTile(){
 //Move method for shuffle
 var moveTile1 = function(elmt){
 
-	if(move == "right"){
+	if(move === "right"){
 		elmt.style.left=parseInt(elmt.style.left)+100+'px';
 		space-=1;
-	}else if(move == "left"){
+	}else if(move === "left"){
 		elmt.style.left=parseInt(elmt.style.left)-100+'px';
 		space+=1;
-	}else if (move == 'down'){
+	}else if (move === 'down'){
 		elmt.style.top=parseInt(elmt.style.top)+100+'px';
 		space-=4;
-	}else if(move == 'up'){
+	}else if(move === 'up'){
 		elmt.style.top=parseInt(elmt.style.top)-100+'px';
 		space+=4;
 	}
@@ -167,9 +168,9 @@ function shuffle(){
 	var num=100;
 	for(var i =0; i<num; i++){
 		var lst = [];
-		for(var i1 =0; i1<boxes1.length; i1++){
-			if(canMove1(boxes1[i1])!="none"){
-				lst.push(i1);
+		for(var y =0; y<boxes1.length; y++){
+			if(canMove1(boxes1[y])!="none"){
+				lst.push(y);
 			}
 
 		}
