@@ -1,6 +1,10 @@
 //The animation and transition of tiles additional feature was implemented.
 // The image change was also implemented
 //id: 620024494
+// Was assisted by Rojay paseley with some of the functions
+
+
+
 var space=15; //Empty tile
 var move="none";// direction
 var boxes1;//Array of tiles
@@ -42,7 +46,7 @@ window.onload = function(){
 	}
 };
 
-//Check if tile can move
+// do check for the movement of the title
 function canMove(){
 	if(!inProgress){
 		if((parseInt(this.style.left)+parseInt(this.offsetWidth)) === parseInt(getX()) && this.style.top===getY()){
@@ -65,12 +69,12 @@ function canMove(){
 
 }
 
-//remove .moveablepiece class when mouse exits tile
+//.moveablepiece class is removed when mouse exits tile
 function clear(){
 	this.className = 'puzzlepiece';
 }
 
-//Check method for shuffle
+//Check shuffle if possable
 function canMove1(elmt){
 	if((parseInt(elmt.style.left)+parseInt(elmt.offsetWidth)) === parseInt(getX()) && elmt.style.top===getY()){
 		move="right";
@@ -117,7 +121,7 @@ function shift(){
 	
 }
 
-//Gets direction and then calls shift() to move tile
+//Gets direction and shift title according
 function moveTile(){
 	if(!inProgress){
 		if(move === "right"){
